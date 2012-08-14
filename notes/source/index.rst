@@ -6,6 +6,7 @@ Notas de Laboratorio
    :maxdepth: 2
 
    introduccion
+   solucion
 
 Indices and tables
 ==================
