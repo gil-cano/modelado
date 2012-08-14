@@ -1,0 +1,9 @@
+# Packages
+*.egg
+*.egg-info
+build
+parts
+bin
+var
+develop-eggs
+.installed.cfg
