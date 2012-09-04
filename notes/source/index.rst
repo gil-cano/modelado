@@ -7,6 +7,7 @@ Notas de Laboratorio
 
    introduccion
    solucion
+   tresn_masuno
 
 Indices and tables
 ==================
