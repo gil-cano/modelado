@@ -2,13 +2,13 @@
 
 int main()
 {
-    long p, q, r;
-    while (scanf("%ld %ld", &p, &q) != EOF){
+    int p, q, r;
+    while (scanf("%d %d", &p, &q) != EOF){
         if (q>p)
             r = q-p;
         else
             r = p-q;
-        printf("%ld\n", r);
+        printf("%d\n", r);
     }
     return 0;
 }

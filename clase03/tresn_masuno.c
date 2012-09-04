@@ -17,24 +17,27 @@ long longitud_de_ciclo(long n){
 long ciclo_maximo(long min, long max){
     long maximo = 1;
     long longitud;
-    long masgrandote = min;
     while(min <= max){
         longitud = longitud_de_ciclo(min);
         if (longitud > maximo){
             maximo = longitud;
-            masgrandote = min;
         }
         min = min + 1;
     }
-    printf("el mas grandote fue %ld\n", masgrandote);
     return maximo;
 }
 
 int main()
 {
-    long minimo, maximo;
+    long minimo, maximo, ciclo_max;
     while(scanf("%ld %ld", &minimo, &maximo) != EOF){
-        printf("%ld %ld %ld\n", minimo, maximo, ciclo_maximo(minimo, maximo));
+        if (maximo < minimo){
+            ciclo_max =  ciclo_maximo(maximo, minimo);
+        }
+        else {
+            ciclo_max = ciclo_maximo(minimo, maximo);
+        }
+        printf("%ld %ld %ld\n", minimo, maximo, ciclo_max);
     }
     return 0;
 }
