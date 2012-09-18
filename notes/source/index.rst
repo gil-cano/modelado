@@ -5,10 +5,11 @@ Notas de Laboratorio
 .. toctree::
    :maxdepth: 2
 
-   introduccion
-   solucion
-   tresn_masuno
-   interprete
+   #introduccion
+   #solucion
+   #tresn_masuno
+   #interprete
+   dahdahdah
 
 Indices and tables
 ==================
