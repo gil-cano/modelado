@@ -7,3 +7,5 @@ bin
 var
 develop-eggs
 .installed.cfg
+practicas/
+*.png
