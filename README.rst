@@ -1,3 +1,3 @@
 .. note::
 
-    The documenation is still in development.
+    The documentation is still in development.
