@@ -25,7 +25,7 @@ import sys, os
 
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = ['sphinx.ext.mathjax']
+extensions = ['sphinx.ext.mathjax', 'hieroglyph']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -91,9 +91,9 @@ pygments_style = 'sphinx'
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = 'haiku'
+# html_theme = 'haiku'
 # html_theme = 'scrolls'
-# html_theme = 'default'
+html_theme = 'default'
 
 
 # Theme options are theme-specific and customize the look and feel of a theme
@@ -286,3 +286,8 @@ epub_copyright = u'2012, Gildardo Bautista'
 
 # Allow duplicate toc entries.
 #epub_tocdup = True
+
+
+# -- Options for sildes output ---------------------------------------------------
+slide_theme = 'single-level'
+slide_theme_options = {'custom_css':'custom.css'}
