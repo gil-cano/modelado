@@ -31,6 +31,20 @@ public class RedRect extends Frame {
 //         g.drawString("d.width = " + d.width, 10, 30);
 //         g.drawString("d.height = " + d.height, 10, 60);
 //         g.setColor(Color.red);
+// g.drawLine(0,0, maxX,0);
+// g.drawLine(maxX,0, maxX,maxY);
+// g.drawLine(maxX,maxY, 0,maxY);
+// g.drawLine(0,maxY, 0,0);
+
 //         g.drawRect(0, 0, maxX, maxY);
+// g.fillRect(0,0,maxX.maxY);
 //     }
+// }
+
+// void board(Graphics g, int x, int y, int n, int w){
+//     for (int i=0; i<n; i++)
+//         for(int j=0; j<n; j++){
+//             g.setColor((i+n-j) % 2 == 0 ? Color.lightGray : Color.darkGRay);
+//             g.fillRect(x + i*w, y + j * w, w, w)
+//         }
 // }
