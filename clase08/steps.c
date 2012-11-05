@@ -21,5 +21,7 @@ int main()
 
         printf("%ld\n", steps);
     }
+    z = x - y;
     return 0;
 }
+
