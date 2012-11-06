@@ -10,7 +10,7 @@ Python
 
    Este documento es una breve introducción a Python.
 
-Agenda
+Indice
 ------
 
 * ¿Que es Python?
@@ -31,16 +31,28 @@ Python es un lenguaje interpretado
 * Multi-plataforma
 * Poderoso
 * Rapido (comparado con otros lenguajes de script)
+* Dinámicamente tipado
 
+Interpretes y Compiladores
+--------------------------
+
+Un interprete lee un programa y lo ejecuta. Procesa el programa leyendo una linea  a
+la vez y la ejecuta.
+
+   .. figure:: /_static/interpret.png
+
+Un copilador lee el programa completo y lo traduce antes de que el programa se ejecute. 
+
+   .. figure:: /_static/compile.png
 
 Versiones
 ---------
 
 * Python 2.4, 2.5, 2.6
 * Python 2.7
-* Python 3.3 (aka Python 3000)
+* Python 3.0, 3.3 (aka Python 3000)
    * Incompatible con Python 2.x en algunos aspectos 
-   * reorganización 
+   * reorganización y "limpieza"
    * No ha sido adoptado por la mayoria de los proyectos
 
 
@@ -56,8 +68,10 @@ Versiones
 * ...
 
 
-The Zen of Python
------------------
+The Zen of Python (Tim Peters)
+------------------------------
+
+El código que sigue los principios de Python de legibilidad y transparencia se dice que es "pythonico"
 
 ::
 
@@ -65,8 +79,8 @@ The Zen of Python
 
 
 
-The Zen of Python
------------------
+The Zen of Python (Tim Peters)
+------------------------------
 
 ::
 
@@ -116,7 +130,7 @@ El Interprete de Python
     >>> 64*8
     512
 
-* Expresiones en multiples lineas ::
+* Sentencias en multiples lineas ::
 
     >>> for i in range(3):
     ...     print "El valor de i es:", i
@@ -126,24 +140,24 @@ El Interprete de Python
     El valor de i es: 2
 
 
-Expresiónes
+Sentencias
 -----------
 
-* Una expresión por linea (no se usa **;**)
+* Una sentencia por linea (no se usa **;**)
 * Sitaxis sensible a mayúsculas y minúsculas
-* Oraciones multiples en una linea se separan por **;** ::
+* sentencias multiples en una linea se separan por **;** ::
 
     >>> import pdb; pdb.set_trace()
 
-* Una oración puede usar mas de una linea usando **\\** al final de cada linea ::
+* Una sentencia puede usar mas de una linea usando **\\** al final de cada linea ::
 
     >>> if a == 0 and \
     ...     b != 1:
     ...     print 'a es 0, pero b no es 1'
 
 
-Expresiónes
------------
+Bloques
+-------
 
 * No usa **{** **}**
 * Los bloques se indentan
@@ -184,7 +198,7 @@ Archivos y modulos
     >>> from somemodule import *   # importamos todo (mala practica)
 
 
-Expresión Print
+Sentencia print
 ---------------
 
 * Util para aplicaciones simples
@@ -193,7 +207,7 @@ Expresión Print
     >>> print "Hola", "Mundo"
     Hola Mundo
 
-* podemos escribir a un stream, e.g. a file ::
+* podemos escribir a un archivo ::
 
     >>> outfile = open('outfile.txt', 'w')
     >>> print >>outfile, "Hola, Mundo"
@@ -202,51 +216,94 @@ Expresión Print
 Variables
 ---------
 
-• Automatically created
-• Scoped to functions, but can live beyond an inner block (but see: from
-__future__ import nested_scopes)
-• Global variables can be read always. To set, must declare with global keyword.
-• Names start with a letter or underscore, contains numbers, letters, underscores
-• String literals can be single or double quoted
-• Integers are bare numbers, longs are suffixed with L, floats have dots
-• Variables are dynamically typed. You can’t add a string to a number, but you can assign a string to a variable which previously held a number (normally that’s not a good idea, though)
- >>> x = 10
- >>> s = 'Hello ' + "world“ + str(x) # also, int(), float()
- >>> s
- 'Hello world 10'
+* Se crean automaticamente
+* Los nombres de variables empiezan con una letra o guion bajo.
+  Pueden contener números, letras y guion bajo
+* Las cadenas pueden usar comillas simples o dobles
+* Los enteros son simples números, los enteros largos (long) se siguen de una **L**,
+  los flotantes usan punto
+* Las variables reciben un typo dinamicamente.
+  Una misma variable puede tomar valores de distinto tipo en distintos momentos
+* El chequeo de tipos se realiza durante el tiempo de ejecución
+
+
+Variables
+---------
+
+::
+
+    >>> x = 10
+    >>> _s = 'Hello ' + "world“ + str(x)  # also, int(), float()
+    >>> _s
+    'Hello world10'
+    >>> type(3L)
+    <type 'long'>
+    >>> type(x)
+    <type 'int'>
+    >>> x = 10.0
+    >>> type(x)
+    <type 'float'>
+
+
+Palabas reservadas
+------------------
+
+::
+
+    and       as      assert   break      class    continue
+    def       del     elif     else       except   exec
+    finally   for     from     global     if       import
+    in        is      lambda   nonlocal   not      or
+    pass      raise   return   try        while    with
+    yield     True    False    None
 
 
 Operadores
 ----------
 
-• Much like C: +, -, *, /, % (modulo division)
-• Assignment-operations: +=, -=, *=, /=, %= (but not --, ++)
- >>> x = 4
- >>> x += 2
- >>> x
- 6
-• Power:** >>> 2 ** 3
-8
-• String multiplication
- >>> "hey" * 3
- 'heyheyhey'
+* Los missmos que C: +, -, \*, /, %
+* Operadores de asignación: +=, -=, \*=, /=, %=  (no tiene --, ++) ::
+
+    >>> x = 4
+    >>> x += 2
+    >>> x
+    6
+
+* Potencia:\*\*
+* Multiplicación de cadenas ::
+
+    >>> 2 ** 3
+    8
+    >>> "hey" * 3
+    'heyheyhey'
 
 
 Operadores Booleanos
 --------------------
 
-• Like C, have: ==, !=, <, >, <=, >=
-• Unlike C, use and, or, not for logical operations
-• These short-circuit
-• ConstantsTrueandFalse
-• Constant None is a special "no value" constant (like null in databases, C, Java)
-• 0, "" (empty sting) and None all evaluate to False
->>> 1 == 2
-False
->>> 1 == 1 and 2 == 2 True
->>> 1 != 1 or 2 != 3 True
-• Check if a value is in a sequence (list, string, tuple): in (and not in) >>> 1 in [1,2,3]
-True
+* Como C, tiene: ==, !=, <, >, <=, >=
+* A diferencia de C, usa **and**, **or**, **not** como operadores lógicos
+* Define conatantes **True** y **False**
+* La constante **None** es una contante especial "sin valor" (null)
+* **0**, **""** (cadena vacia) y **None**  se evaluan a **False** ::
+
+    >>> 1 == 2
+    False
+    >>> 1 == 1 and 2 == 2 True
+    >>> 1 != 1 or 2 != 3 True
+
+Operadores Booleanos
+--------------------
+
+* **in** (y **not in**)
+  Verifica si un valor esta en una sequiencia (cadena, lista, tupla) 
+
+::
+
+    >>> 'H' in "Hola"
+    True
+    >>> 'H' not in "Hola"
+    False
 
 
 Cadenas
