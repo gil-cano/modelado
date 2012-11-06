@@ -159,7 +159,7 @@ Sentencias
 Bloques
 -------
 
-* No usa **{** **}**
+* No usa llaves **{** **}**
 * Los bloques se indentan
 * Python es sensible a los espacios
 * Configura tu editor para remplazar tabs por 4 espacios ::
@@ -309,249 +309,287 @@ Operadores Booleanos
 Cadenas
 -------
 
-• Strings literals are enclosed in single or double quotes (no difference).
-• Triple-quotes allow string literals over multiple lines.
- >>> s = """a string
- ... on multiple lines"""
-• Special characters escaped with \, e.g. "a backslash is \\".
-• ... except in raw strings: marked with r"" (useful for regular expressions etc.)
-• Strings are immutable (like Java) – if you concatenate strings, a new string object is allocated (see buffer()).
-• Strings are ASCII by default. Unicode string literals are marked by u"".
-• All strings can use printf() style interpolation
- >>> numlines = 3
- >>> filename = "myfile.txt"
- >>> "I want %02d lines from %s." % (numlines, filename)
- "I want 03 lines from myfile"
+* Las cadenas se enciarran con comillas simples o dobles
+* Las comillas triples permiten cadenas de multiples lineas ::
+
+     >>> s = """una cadena
+     ... en avarias lineas"""
+
+* Caracters especiales se escapan con \\
+* Las cadenas son imutables (como en Java),
+  si concatenas cadenas un nuevo objeto cadena es creado
+* Las cadenas on ASCII por default. Usa **u""** para unicode 
+
+Cadenas
+-------
+
+* Las cadenas pueden usar la sintaxis de printf() ::
+
+     >>> numlines = 3
+     >>> filename = "myfile.txt"
+     >>> "Quiero %02d lineas de %s." % (numlines, filename)
+     "Quiero 03 lineas de myfile.txt."
 
 
 Operadores de Cadenas
 ---------------------
 
-• These all allocate and return new strings
-• See http://docs.python.org/lib/string-methods.html
->>> "hello".upper() # also lower() 'HELLO'
->>> "hello".capitalize()
-'Hello'
->>> ' hello '.strip()
-'hello'
->>> 'hello'.replace('l', y')
-'heyyo'
->>> 'one,two,three'.split(',') # default is to split on whitespace ['one', 'two', 'three']
->>> ','.join(['uno', 'dos', 'tres'])
-'uno,dos,tres'
+* Todos estos metodos regresan una nueva cadena
+* ver http://docs.python.org/lib/string-methods.html ::
+
+    >>> "hola".upper() # lower()
+    'HOLA'
+    >>> "hola".capitalize()
+    'Hola'
+    >>> ' hola '.strip()
+    'hola'
+    >>> 'hola'.replace('l', y')
+    'hoya'
+    >>> 'uno,dos,tres'.split(',') # por default parte por espacios
+    ['uno', 'dos', 'tres']
+    >>> ','.join(['uno', 'dos', 'tres'])
+    'uno,dos,tres'
 
 
 Números
 -------
 
-• Integer division truncates
->>> 5 / 2 5
-• Any floating point number in a calculation will cause type promotion
->>> 5 / 2.0 2.5
-• Can type cast with float(), int(), long(), str(), list(), tuple()
- >>> float(5/2)     # only casts the result
- 2.0
- >>> float(5) / 2   # invokes type promotion
- 2.5
+* divición entera
+* Si se usa un float el resultado es float ::
+
+    >>> 5 / 2
+    2
+    >>> 5 / 2.0
+    2.5
+
+* puedes hacer un cast con **float()**, **int()**, **long()**, **str()**,
+  **list()**, **tuple()**  
+
+::
+
+     >>> float(5/2)
+     2.0
+     >>> float(5) / 2
+     2.5
 
 
 Listas y tuplas
 ---------------
 
-• Lists are mutable, enclosed in square brackets
- >>> mylist = [1,2]
- >>> mylist.append(3)
- >>> mylist
- [1, 2, 3]
-• Tuples are immutable, enclosed in parentheses
->>> mytuple = (1, 2, 3)
->>> mytuple += (4, 5) # allocates a new tuple >>> mytuple
-(1, 2, 3, 4, 5)
+* Las listas se definen entre corchetes y pueden modificarse ::
+
+     >>> mylist = [1,2]
+     >>> mylist.append(3)
+     >>> mylist
+     [1, 2, 3]
+
+• Las tuplas se definen entre parentesis y no pueden modificarse ::
+
+    >>> mytuple = (1, 2, 3)
+    >>> mytuple += (4, 5) # nueva tupla
+    >>> mytuple
+    (1, 2, 3, 4, 5)
+    >>> (4)     # ojo no regresa una tupla, usa (4,)
+    4
 
 
 Indices y rebanadas
 -------------------
 
-• Apply to lists and strings (and other sequence types).
-• Sequences are zero-based
-• Select a (possibly open-ended) range of items.
-• Start index goes before the colon; after colon is one-past-last-index
- >>> data = ['a', 'b', 'c', 'd']
- >>> data[1]
- 'b'
- >>> data[0:2]
- ['a','b']
- >>> data[1:3]
- ['b', 'c']
- >>> data[2:]
- ['c','d']
- >>> data[:2]
- ['a','b']
+    >>> data = ['a', 'b', 'c', 'd']
+    >>> data[1]
+    'b'
+    >>> data[0:2]
+    ['a','b']
+    >>> data[1:3]
+    ['b', 'c']
+    >>> data[2:]
+    ['c','d']
+    >>> data[:2]
+    ['a','b']
 
-• Negative numbers count from the end of the sequence
- >>> data = ['a', 'b', 'c', 'd']
- >>> data[-1]
- 'd'
- >>> data[1:-2]
- ['a', 'b']
- >>> data[-2:]
- ['c', 'd']
+    >>> data[-1]
+    'd'
+    >>> data[1:-2]
+    ['b']
+    >>> data[-2:]
+    ['c', 'd']
 
 
-Funciones de Listas
+Métodos de listas
 -------------------
 
-• Length of a list or string
- >>> len([1,2,3])
- 3
-• Reverse, sort a list in-place (do not return a value)
- >>> x = [1,2,3]
- >>> x.reverse()
- >>> x
- [3, 2, 1]
- >>> x.sort()
- >>> x
- [1, 2, 3]
-• Lists are passed by reference
- >>> y = x
- >>> y.append(4)
- >>> x
- [1, 2, 3, 4]
+    >>> len([1,2,3])
+    3
 
-• Find an element with index():
- >>> x = ['a', 'b', 'c']
- >>> x.index('b')
- 2
-• Append, remove, insert:
- >>> x.append('d')
- >>> x
- ['a', 'b', 'c', 'd']
- >>> x.remove('b')
- ['a', 'c', 'd']
- >>> del x[0]
- ['c', 'd']
- >>> x.insert(1, 'e')
- ['c', 'e', 'd']
+    >>> x = [1,2,3]
+    >>> x.reverse()
+    >>> x
+    [3, 2, 1]
 
+    >>> x.sort()
+    >>> x
+    [1, 2, 3]
 
-List comprehensions
+    >>> y = x  # las listas pasan por referencia
+    >>> y.append(4)
+    >>> x
+    [1, 2, 3, 4]
+
+Métodos de listas
 -------------------
 
-• Build a list on the fly, optionally with a filter
->>> [i * 2 for i in range(4)] [0, 2, 4, 6]
->>> x = ['A', 'BB', 'CC', 'D', 'EE', 'F'] >>> [c.lower() for c in x if len(c) == 2] ['bb', 'cc', 'ee']
+     >>> x = ['a', 'b', 'c']
+     >>> x.index('b')
+     2
+
+    >>> x.append('d')
+    >>> x
+    ['a', 'b', 'c', 'd']
+    >>> x.remove('b')
+    ['a', 'c', 'd']
+    >>> del x[0]
+    ['c', 'd']
+    >>> x.insert(1, 'e')
+    ['c', 'e', 'd']
 
 Diccionarios
 ------------
 
-• Store key-value pairs
-• Keys can be (almost) anything, don't all have to be of the same type (but normally they should be)
-• Values can be anything, of any type
-• Access is O(1)
->>> d = {}
->>> d['one'] = 1 >>> d['two'] = 2 >>> 'one' in d True
->>> d.keys() ['one', 'two'] >>> d.values() [1, 2]
+* Guarda parejas llave-valor
+* Las llaves pueden ser de casi cualquier tipo, no tienen que ser del mismo tipo
+* Los valores pueden ser de cualquier tipo
+* El Acceso es O(1) ::
+
+    >>> d = {}
+    >>> d['one'] = 1
+    >>> d['two'] = 2 
+    >>> 'one' in d
+    True
+    >>> d.keys()
+    ['one', 'two'] 
+    >>> d.values()
+    [1, 2]
 
 
-Funciones de Dictionarios
+Métodos de Diccionarios
 -------------------------
 
-• Loop over items in a dict with items(). Note that dicts are unordered! >>> x = {'one' : 1, 'two' : 2}
- >>> for k, v in x.items():
- ...    print "key", k, "is", v
- key one is 1
- key two is 2
-• Delete an item:
- >>> del x['one']
- >>> x
- {'two' : 2}
-• Not sure if it's there? Use get(): >>> x.get('foo', 'default')
- 'default'
- >>> x.get('one', 'default')
- 1
-• Create if not there – use setdefault()
->>> x.setdefault('bar', 'newvalue') 'newvalue'
+    >>> d.items()
+    [('two', 2), ('one', 1)]
+
+    >>> del d['one']
+    >>> d
+    {'two' : 2}
+
+    >>> d['two']
+    2
+    >>> d['one']
+    Traceback (most recent call last):
+      File "<input>", line 1, in <module>
+    KeyError: 'one'
 
 
-Conjuntos
----------
+Métodos de Diccionarios
+-------------------------
 
-• Like dicts without values. Still unordered! A frozenset is immutable and faster. >>> x = set([1,2,3])
->>> for v in x:
-... print "item", v
- item 1
- item 3
- item 2
-• Add an item:
- >>> x.add(4)
- >>> x.update([2,4,6]) # can be any iterable
-• Delete an item:
- >>> x.remove(1)
- >>> x
- set([2,3,4,6])
-• Intersection, difference, subtraction
- >>> y = set([2,4,6])
- >>> x.intersection(y) # try also union(), difference()
- set([2,4,6])
+    >>> d.get('foo', 'default')
+    'default'
+    >>> d.get('two', 'default')
+    2
+
+    >>> d.setdefault('bar', 'newvalue')
+    'newvalue'
+    >>>d
+    {'bar': 'newvalue', 'two': 2}
+
+    >>> d.setdefault('two', 'newvalue')
+    2
+    >>>d
+    {'bar': 'newvalue', 'two': 2}
 
 
 Condicionales
 -------------
 
-• Useif,elifandelse. • Blocks are indented.
-• Conditional statement ends with a colon:
- >>> if 1 == 2:
- ...     print "pigs can fly"
- ... elif 'a' == 'A' or 'b' == 'B':
- ...     print "no, we're case sensitive"
- ... else:
-...
-print "world is sane"
+* **if**, **elif** y **else**
+* Indenta los bloques
+* Las sentencias condiconales terminan con **:** ::
 
+    >>> if 1 == 2:
+    ...     print "pigs can fly"
+    ... elif 'a' == 'A' or 'b' == 'B':
+    ...     print "no, we're case sensitive"
+    ... else:
+    ...      print "world is sane"
+    ...
+    world is sane
 
 Ciclos y rangos
 ---------------
 
-• Main type of loop is for – loop over the items in a sequence • Can use break or continue to terminate or re-loop
- >>> for x in [1,2,3]:
- ...     if x == 1: continue
- ...     print "What you wanted was", x
- ...     If x == 2: break
- What you wanted was 2
-• Can use range() to generate a list of indexes (or other sequence of integers)
- >>> arr = ['a', 'b', 'c']
- >>> for idx in range(3): # results in [0,1,2]
- ...     print "At", idx, "we have", arr[idx]
- At 0 we have a
- At 1 we have b
- At 2 we have c
+    >>> for x in [1,2,3]:
+    ...     if x == 1: continue
+    ...     print "What you wanted was", x
+    ...     if x == 2: break
+    What you wanted was 2
 
- • Other type of loop is while. There is no do-while loop.
-• Loops until condition is False, break and continue still work
- >>> import random
- >>> max = random.randint(0, 10) # random int, 0-10
- inclusive
- >>> counter = 0
- >>> while counter <= max:
-... ...
-print "Ok, we have", counter
-counter += 2
+    >>> arr = ['a', 'b', 'c']
+    >>> for idx in range(3):
+    ...     print "At", idx, "we have", arr[idx]
+    At 0 we have a
+    At 1 we have b
+    At 2 we have c
+
+Ciclos y rangos
+---------------
+
+    >>> import random
+    >>> max = random.randint(0, 10)
+    >>> counter = 0
+    >>> while counter <= max:
+    ...     print "Ok, we have", counter
+    ...     counter += 2
 
 
-Funciones
+Listas
+------
+
+    >>> [i * 2 for i in range(4)]
+    [0, 2, 4, 6]
+
+    >>> x = ['A', 'BB', 'CC', 'D', 'EE', 'F'] 
+    >>> [c.lower() for c in x if len(c) == 2] 
+    ['bb', 'cc', 'ee']
+
+
+Funciónes
 ---------
 
-• Defined with def, take zero or more arguments, may or may not return >>> def add_two_numbers(x, y):
- ...     return x + y
-• Call by name – optionally use keyword arguments
- >>> add_two_numbers(1, 2)
- 3
- >>> add_two_numbers(y=3, x=2)
- 5
-• Variable positional and keyword arguments – read as lists, dicts
- >>> def print_args(x, *args, **kwargs):
- ...     print x, "and", args, "and", kwargs
- >>> print_args(1, 2, 3, a=2, b=3)
- 1 and (2, 3) and {'a': 2, 'b': 3}
+* Se deinen con **def**, toman cero o mas argumentos, pueden regresar un valor o no ::
+
+    >>> def add_two_numbers(x, y):
+    ...     return x + y
+
+• Se llaman por nombre y opcionalmente usan las llaves de argumento ::
+
+    >>> add_two_numbers(1, 2)
+    3
+    >>> add_two_numbers(y=3, x=2)
+    5
+
+Funciónes
+---------
+
+* posicion variable de los argumentos  ::
+
+    >>> def print_args(x, *args, **kwargs):
+    ...     print x, "and", args, "and", kwargs
+
+    >>> print_args(1, 2, 3, a=2, b=3)
+    1 and (2, 3) and {'a': 2, 'b': 3}
+    
+    >>> print_args(1, 2, 3, 4, a=2, b=3)
+    1 and (2, 3, 4) and {'a': 2, 'b': 3}
 
  
