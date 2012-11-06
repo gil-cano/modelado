@@ -5,6 +5,7 @@ Notas de Laboratorio
 .. toctree::
    :maxdepth: 2
 
+   python.rst
    introduccion
    solucion
    tresn_masuno

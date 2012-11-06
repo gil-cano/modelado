@@ -290,4 +290,7 @@ epub_copyright = u'2012, Gildardo Bautista'
 
 # -- Options for sildes output ---------------------------------------------------
 slide_theme = 'single-level'
-slide_theme_options = {'custom_css':'custom.css'}
+slide_theme_options = {'custom_css': 'custom.css'}
+slide_link_to_html = True
+slide_link_html_to_slides = True
+
