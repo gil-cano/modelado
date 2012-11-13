@@ -6,13 +6,13 @@ Notas de Laboratorio
    :maxdepth: 2
 
    python.rst
-   introduccion
-   solucion
-   tresn_masuno
-   interprete
-   dahdahdah
-   flapjacks
-   java_swing
+   #introduccion
+   #solucion
+   #tresn_masuno
+   #interprete
+   #dahdahdah
+   #flapjacks
+   #java_swing
 
 Indices and tables
 ==================
