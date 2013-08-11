@@ -9,5 +9,6 @@ var
 develop-eggs
 .installed.cfg
 practicas/
+proyectos/
 *.class
 *.tgz
