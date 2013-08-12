@@ -1,12 +1,12 @@
 Python
 ======
 
-.. slides::
+.. ifslides::
 
    .. figure:: /_static/python.png
       :class: fill
 
-.. notslides::
+.. ifnotslides::
 
    Este documento es una breve introducción a Python.
 

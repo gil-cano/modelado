@@ -1,7 +1,7 @@
 APIs de Graficos en Java
 ========================
 
-.. slides::
+.. ifslides::
 
    .. figure:: /_static/sunripsmall.jpeg
       :class: fill
