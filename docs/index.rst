@@ -1,18 +1,13 @@
+.. bin/sphinx-build -b slides docs build/slides
 
-Notas de Laboratorio
-====================
+Modelado y Programación
+=======================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
+   c.rst
    python.rst
-   #introduccion
-   #solucion
-   #tresn_masuno
-   #interprete
-   #dahdahdah
-   #flapjacks
-   #java_swing
 
 Indices and tables
 ==================
