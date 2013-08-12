@@ -76,3 +76,16 @@ Sintaxsis
 * ciclos
 * comentarios
 
+(sintaxis, ejemplitos pequeños, funciones, estructuras de control de flujo, paso de parámetros, apuntadores, llamadas al sistema, etc)
+
+
+Juez
+----
+http://online-judge.uva.es/
+
+* Accepted (AC) — Congratulations! Your program is correct, and runs within the given time and memory limits.
+* Wrong Answer (WA) — This you should concern you, because your program returned an incorrect answer to one or more of the judge’s secret test cases. You have some more debugging to do.
+* Compile Error (CE) — The compiler could not figure out how to compile your program.
+* Runtime Error (RE) — Your program failed during execution due to a segmen- tation fault, floating point exception, or similar problem.
+* Time Limit Exceeded (TL) — Your program took too much time on at least one of the test cases, so you likely have a problem with efficiency. 
+* Memory Limit Exceeded (ML) — Your program tried to use more memory than the judge’s default settings.
