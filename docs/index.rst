@@ -7,6 +7,7 @@ Modelado y Programación
    :maxdepth: 1
 
    c.rst
+   testing.rst
    python.rst
 
 Indices and tables
