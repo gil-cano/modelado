@@ -61,3 +61,8 @@ Make hace lo siguiente:
 * Si no, verifica si hay otro archivo que comienze con *hello*
 * Si se llama hello.c
 * Ejecuta cc hello.c -o hello
+
+
+.. literalinclude:: ../src/Makefile
+    :language: c
+
