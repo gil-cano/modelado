@@ -1,0 +1,11 @@
+.navbar .navbar-inner {
+  background-color: #252525 !important;
+}
+
+.navbar-inverse .brand {
+  color: #08c !important	;
+}
+
+footer {
+  background-color: #252525;
+}

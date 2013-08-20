@@ -1,0 +1,63 @@
+Configuración
+=============
+
+Lunix (debian)
+--------------
+
+.. code-block:: sh
+
+	$ sudo apt-get install build-essential
+
+Mac OSX
+-------
+
+Instala la ultima versión de XCode
+
+Windows
+-------
+
+Usa una maquina virtual (*VirtualBox*)
+
+Compilando con gcc
+==================
+
+Este es el programa más simple en C:
+
+.. literalinclude:: ../src/hello.c
+    :language: c
+
+Si el archivo se llama hola.c entonces, para compilarlo:
+
+.. code-block:: sh
+
+    $ ls
+    hello.c
+    $ gcc hello.c        
+    $ ls
+    a.out		hello.c	
+    $ gcc hello.c -o hello
+    $ ls
+    a.out	hello		hello.c	
+
+Compilando con make
+===================
+
+.. code-block:: sh
+
+    $ make hello   
+    cc     hello.c   -o hello
+
+Ahora podemos ejecutar el programa:
+
+.. code-block:: sh
+
+    $ ./hello 
+    Hola mundo!
+
+Con el primer comando estamos pidiendo a make un ejecutable que se llame *hello*.
+Make hace lo siguiente:
+
+* Verifica si el archivo ya existe.
+* Si no, verifica si hay otro archivo que comienze con *hello*
+* Si se llama hello.c
+* Ejecuta cc hello.c -o hello

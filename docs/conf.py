@@ -12,11 +12,7 @@
 # serve to show the default.
 
 import sys, os
-
-# If extensions (or modules to document with autodoc) are in another directory,
-# add these directories to sys.path here. If the directory is relative to the
-# documentation root, use os.path.abspath to make it absolute, like shown here.
-#sys.path.insert(0, os.path.abspath('.'))
+import sphinx_bootstrap_theme
 
 # -- General configuration -----------------------------------------------------
 
@@ -82,6 +78,8 @@ exclude_patterns = []
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
+# pygments_style = 'borland'
+
 
 # A list of ignored prefixes for module index sorting.
 #modindex_common_prefix = []
@@ -93,16 +91,21 @@ pygments_style = 'sphinx'
 # a list of builtin themes.
 # html_theme = 'haiku'
 # html_theme = 'scrolls'
-html_theme = 'default'
-
+# html_theme = 'pyramid'
+html_theme = 'bootstrap'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
-#html_theme_options = {}
+html_theme_options = {
+	'navbar_class': "navbar navbar-inverse",
+	'source_link_position': "None",
+	# 'bootswatch_theme': "united",
+}
 
 # Add any paths that contain custom themes here, relative to this directory.
 #html_theme_path = []
+html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
@@ -243,50 +246,6 @@ texinfo_documents = [
 
 # How to display URL addresses: 'footnote', 'no', or 'inline'.
 #texinfo_show_urls = 'footnote'
-
-
-# -- Options for Epub output ---------------------------------------------------
-
-# Bibliographic Dublin Core info.
-epub_title = u'Modelado y Programacion'
-epub_author = u'Gildardo Bautista'
-epub_publisher = u'Gildardo Bautista'
-epub_copyright = u'2012, Gildardo Bautista'
-
-# The language of the text. It defaults to the language option
-# or en if the language is not set.
-#epub_language = ''
-
-# The scheme of the identifier. Typical schemes are ISBN or URL.
-#epub_scheme = ''
-
-# The unique identifier of the text. This can be a ISBN number
-# or the project homepage.
-#epub_identifier = ''
-
-# A unique identification for the text.
-#epub_uid = ''
-
-# A tuple containing the cover image and cover page html template filenames.
-#epub_cover = ()
-
-# HTML files that should be inserted before the pages created by sphinx.
-# The format is a list of tuples containing the path and title.
-#epub_pre_files = []
-
-# HTML files shat should be inserted after the pages created by sphinx.
-# The format is a list of tuples containing the path and title.
-#epub_post_files = []
-
-# A list of files that should not be packed into the epub file.
-#epub_exclude_files = []
-
-# The depth of the table of contents in toc.ncx.
-#epub_tocdepth = 3
-
-# Allow duplicate toc entries.
-#epub_tocdup = True
-
 
 # -- Options for sildes output ---------------------------------------------------
 slide_theme = 'single-level'
