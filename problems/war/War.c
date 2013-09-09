@@ -4,6 +4,14 @@
 
 #include <stdio.h>
 
+typedef struct tree_node{
+    /* data */
+    int item;
+    struct tree_node *parent;
+} node;
+
+node *tree = NULL;
+
 int main(int argc, char const *argv[])
 {
     /* the number of people */
@@ -28,8 +36,17 @@ int main(int argc, char const *argv[])
         if (!c && !x && !y) {
             return 0;
         }
-        
-        printf("%d %d %d\n", c, x, y);
+
+        switch(c){
+            case 1:
+                printf("%d %d %d\n", c, x, y);
+            case 2:
+                printf("%d %d %d\n", c, x, y);
+            case 3:
+                printf("%d %d %d\n", c, x, y);
+            case 4:
+                printf("%d %d %d\n", c, x, y);
+        }
       }
       return 0;
 }
